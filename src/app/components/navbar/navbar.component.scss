@@ -1,0 +1,73 @@
+mat-toolbar {
+  background-color: #2188d9;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-heading a {
+  margin-left: 12px;
+  float: left;
+  position: relative;
+  color: white;
+  text-transform: capitalize;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+button {
+  color: #fff;
+  margin-left: 50px;
+}
+
+.nav-btn {
+  margin-left: 0;
+}
+
+.nav-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  flex-grow: 0.5;
+  height: 100%;
+  max-width: 70%;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 16px;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+   mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.nav-container ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  margin: 0 4px;
+  text-transform: capitalize;
+}
+
+.logout-btn {
+  margin-left: 2px;
+}
+
+mat-toolbar a:hover {
+  background-color: #427297;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}

@@ -1,0 +1,117 @@
+// Style for Header
+.app-header {
+  margin-left: 32px;
+}
+
+// Style for the components on the page
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+}
+
+// styling the list content
+
+.app-content {
+  display: flex;
+  height: 80%;
+}
+
+.inner-app-content {
+  margin-right: 32px;
+  margin-left: 32px;
+  overflow-y: auto;
+  min-width: 500px;
+  padding-right: 30px;
+  &.fullwidth {
+    width: 100%;
+  }
+
+  &.fullwidth mat-card {
+    width: 100%;
+  }
+}
+
+.data-list {
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+
+    .status {
+      margin-top: 8px;
+      span {
+        padding: 4px 8px;
+        border: 1px solid black;
+
+        &::before {
+          // Create a dot
+          content: " ";
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: black;
+          border-radius: 50%;
+          margin-right: 4px;
+        }
+      }
+      &.uncomplete {
+        span {
+          background-color: #ff11004b;
+          color: #ff0000;
+          font-weight: bold;
+
+          border-color: red;
+          text-transform: capitalize;
+          &::before {
+            background-color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+mat-card {
+  min-width: 470px;
+  margin-bottom: 16px;
+  border: 1px solid #b8b9bc;
+}
+
+mat-card-title {
+  margin-bottom: 8px;
+}
+
+mat-form-field {
+  width: auto;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.card-item {
+  margin-bottom: 8px;
+}
+.card-label {
+  color: #6a6a6c;
+  margin-bottom: 8px;
+}
+
+.card-due-date {
+  color: orange;
+  font-weight: bold;
+}
+
+google-map {
+  width: 100%;
+  float: right;
+}
+
+.mat-button-toggle-checked {
+  background-color: #2188d9 !important;
+  color: #fff;
+}

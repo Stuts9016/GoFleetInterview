@@ -1,0 +1,90 @@
+<app-navbar> </app-navbar>
+
+<h1 class="app-header">Submissions</h1>
+
+<div class="container">
+  <div class="inner">
+    <mat-form-field appearance="outline">
+      <mat-label>Search...</mat-label>
+      <input matInput />
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Form</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option value="option1">Option 1</mat-option>
+        <mat-option value="option2">Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Status</mat-label>
+      <mat-select>
+        <mat-option default>None</mat-option>
+        <mat-option value="low_risk">Low Risk</mat-option>
+        <mat-option value="uncomplete">Uncomplete</mat-option>
+        <mat-option value="unassigned">Unassigned</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input matInput [matDatepicker]="picker" [value]="filters.date" />
+      <mat-datepicker-toggle matIconPrefix [for]="picker"></mat-datepicker-toggle>
+      <mat-label>Choose a Date
+
+      </mat-label>
+
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="inner">
+
+    <mat-button-toggle-group name="showAs" (change)="changeInToggleGroup($event.value)">
+      <mat-button-toggle value="map" color="primary" checked>Map</mat-button-toggle>
+      <mat-button-toggle value="list" name="List">List</mat-button-toggle>
+
+    </mat-button-toggle-group>
+
+    <button mat-button color="primary" (click)="downloadMyFile()">
+      Export
+      <mat-icon> download </mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="app-content">
+  <div [ngClass]="{'fullwidth': showAs === 'list', 'inner-app-content':true}">
+    <div *ngFor="let item of mapList" class="data-list">
+      <mat-card>
+        <mat-card-content>
+          <div>
+            <mat-card-title>{{ item.title }}</mat-card-title>
+            <div class="card-item">
+              <mat-label class="card-label">From: </mat-label>
+              <mat-label>{{ item.from }}</mat-label>
+            </div>
+            <div class="card-item">
+              <mat-label class="card-label">To: </mat-label>
+              <mat-label>{{ item.to }}</mat-label>
+            </div>
+            <div class="card-item">
+              <mat-label class="card-label ">Due Date: </mat-label>
+              <mat-label class="card-due-date">
+               {{ item.dueDate | date: 'dd MMM' }}
+              </mat-label>
+            </div>
+          </div>
+          <div class="status {{item.status}}">
+            <span> {{item.status}}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <google-map *ngIf="showAs === 'map'" height="100%" width="100%" id="google_map"> </google-map>
+</div>
+<router-outlet> </router-outlet>
